@@ -58,15 +58,15 @@ function! <SID>do_right_align(right_border, keep_cursor)
         set shiftround
         let restore_noshiftround = 1
     endif
-    normal ^
+    noautocmd normal ^
     let start_pos = virtcol('.') - 1
     let start_shift = start_pos % &sw
     let end_shift = line_diff % &sw
     call setpos('.', save_cursor)
     " restore cursor position after undo (see Tip 1595 in vim.wikia.com)
     if a:keep_cursor
-        normal ix
-        normal x
+        noautocmd normal ix
+        noautocmd normal x
     endif
     if g:RightAlign_ShiftRound && start_shift > 0
         if line_diff >= 0
