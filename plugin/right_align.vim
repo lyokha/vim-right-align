@@ -1,6 +1,6 @@
 " File: right_align.vim
 " Author: Alexey Radkov
-" Version: 0.7.1
+" Version: 0.7.2
 " Description: A function to set right indentation, it can be useful in insert
 "              mode in addition to ^T, ^D and ^F
 " Usage:
@@ -34,7 +34,7 @@ if !exists('g:RightAlign_ShiftRound')
     let g:RightAlign_ShiftRound = 1
 endif
 
-function! <SID>do_right_align(right_border, keep_cursor)
+function! s:do_right_align(right_border, keep_cursor)
     let save_lbr = &lbr
     let save_sbr = &sbr
     let line_length = virtcol('$') - 1
@@ -125,7 +125,7 @@ function! <SID>do_right_align(right_border, keep_cursor)
     return ''
 endfunction
 
-function! <SID>right_align(right_border, ...)
+function! s:right_align(right_border, ...)
     if getline('.') =~ '^[[:blank:]]*$'
         return ''
     endif
